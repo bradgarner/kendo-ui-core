@@ -318,12 +318,16 @@ The following example showcases how to change the background colors of the input
 With the new rendering, the time button appears before the calendar button. To reverse this change, use the [jQuery.insertAfter](https://api.jquery.com/insertafter/) method: 
 
 ```dojo
-    <input id="datetimepicker" />           
+    <input id="datetimepicker1" />    
+    <input id="datetimepicker2" />
     <script>
       $(document).ready(function () {
-        $("#datetimepicker").kendoDateTimePicker();
+        $("#datetimepicker1").kendoDateTimePicker();
+        $("#datetimepicker2").kendoDateTimePicker();
         
-        $(".k-datetimepicker .k-button:first").insertAfter($(".k-datetimepicker .k-button:last"));
+        $(".k-datetimepicker").each(function (index) {
+            $(this).find(".k-button:first").insertAfter($(this).find(".k-button:last"));
+        });
       });
     </script>
 ```
